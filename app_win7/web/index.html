@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>现代零售终端智慧运营平台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-mark">✓</span>
+      <span class="brand-copy">
+        <strong>现代零售终端智慧运营平台</strong>
+        <small>YOLO11 SEGMENTATION WORKSPACE</small>
+      </span>
+    </div>
+    <div class="top-actions">
+      <span id="service-status" class="service-status is-loading"><i></i><span>模型加载中</span></span>
+      <button id="exit-app" class="link-button" type="button">退出程序</button>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="intro clearfix">
+      <div class="intro-copy">
+        <p class="eyebrow">本地图片智能分析</p>
+        <h1>上传五项检查照片，逐项生成识别结果</h1>
+        <p>图片仅在本机处理。可单项检测，也可按顺序检测全部已选择图片。</p>
+      </div>
+      <div class="summary">
+        <div><strong id="selected-count">0</strong><span>已选择</span></div>
+        <div><strong id="completed-count">0</strong><span>已完成</span></div>
+        <div><strong id="detected-count">0</strong><span>已识别</span></div>
+      </div>
+    </div>
+
+    <div class="command-bar clearfix">
+      <div class="command-copy">
+        <strong>检查资料</strong>
+        <span>支持 JPG、PNG、BMP、WEBP，单张不超过 35 MB</span>
+      </div>
+      <div class="threshold-field">
+        <label for="confidence">置信度 <b id="confidence-value">0.25</b></label>
+        <input id="confidence" type="range" min="0.1" max="0.95" value="0.25" step="0.05">
+      </div>
+      <div class="threshold-field">
+        <label for="iou">IoU <b id="iou-value">0.45</b></label>
+        <input id="iou" type="range" min="0.1" max="0.9" value="0.45" step="0.05">
+      </div>
+      <button id="clear-all" class="button secondary" type="button">清空</button>
+      <button id="export-report" class="button secondary" type="button" disabled>导出数据</button>
+      <button id="run-all" class="button primary" type="button" disabled>检测全部</button>
+    </div>
+
+    <div id="inspection-list" class="inspection-list"></div>
+  </div>
+
+  <div class="footer clearfix">
+    <span>模型：YOLO11n-seg · 输入尺寸：1280 × 1280</span>
+    <span>本地服务仅监听 127.0.0.1</span>
+  </div>
+  <div id="toast-region" class="toast-region"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
