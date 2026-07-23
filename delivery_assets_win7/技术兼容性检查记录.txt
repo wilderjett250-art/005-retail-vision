@@ -1,0 +1,42 @@
+现代零售终端智慧运营平台（Windows 7 版）技术兼容性检查记录
+
+一、兼容运行时
+Python：3.8.10 x64
+ONNX Runtime：1.14.1 CPU x64
+NumPy：1.24.4
+OpenCV Headless：4.8.1
+PyInstaller：5.13.2
+UCRT：Windows SDK 10.0.22621 x64 Redistributable
+
+二、模型信息
+模型：YOLO11n-seg
+ONNX IR：8
+ONNX opset：16
+输入：1 × 3 × 1280 × 1280
+类别：license、signboard、cabinet_module、pillar、pack_cluster
+
+三、Windows 7 依赖检查
+启动器 PE 架构：x64
+启动器最低子系统版本：5.02
+Python、ONNX Runtime、OpenCV、NumPy 核心模块子系统版本：6.00
+整包 DLL/PYD 扫描：未引用 api-ms-win-core-path-l1-1-0.dll
+运行包内含 python38.dll、VC Runtime、UCRT、ONNX Runtime、本地网页和 best.onnx。
+
+四、推理回归结果
+01_store_interior：总分 25.0，目标数 2
+02_service_station：总分 20.0，目标数 2
+03_store_scene：总分 0.0，目标数 0
+04_front_cabinet：总分 10.0，目标数 1
+05_back_cabinet：总分 0.0，目标数 0
+五张输出结果图与原始推理程序的参考结果逐张 SHA256 完全一致。
+
+第 5 项业务规则回归：识别到 pack_cluster，或者同时识别到前柜 license 和背柜 signboard，均显示“识别通过”。前柜和背柜同时识别的测试结果为细分值 25.00、目标数量 2。
+
+五、网页回归结果
+从打包后的 EXE 启动本地服务，完成真实图片选择、上传、推理、结果图显示、总分显示和单项结果显示。
+浏览器自动化检查结果：单类别项目显示图片得分 25.00、本项识别通过、目标数量 1；第 5 项前柜与背柜组合显示细分值 25.00、本项识别通过、目标数量 2；浏览器控制台无错误。
+
+六、实机验收
+当前构建环境未配置 Windows 7 虚拟机。交付包已完成运行时降级、系统 API 扫描和现代 Windows 本机回归；最终验收步骤是在目标 Windows 7 SP1 64 位电脑上双击启动并完成一次图片检测。
+
+EXE SHA256：3AFD8030FA8785A0547A7394A66AE1F09D5366753CBDC4AB235C90052D13665F

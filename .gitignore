@@ -23,7 +23,8 @@ build_*_work/
 build_*_spec/
 dist_*/
 delivery/
-delivery_*/
+delivery_win7/
+delivery_source/
 package_*_work/
 source_delivery_work/
 *.spec
@@ -45,4 +46,3 @@ Thumbs.db
 !.env.example
 *.pem
 *.key
-
