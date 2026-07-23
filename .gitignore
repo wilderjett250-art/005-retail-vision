@@ -1,0 +1,48 @@
+# Python environments and caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pyuserbase-*/
+
+# Node dependencies
+node_modules/
+
+# Runtime and test outputs
+output/
+.runtime-localappdata/
+.exe-runtime-localappdata/
+*.log
+
+# PyInstaller and delivery outputs
+build/
+dist/
+build_*_work/
+build_*_spec/
+dist_*/
+delivery/
+delivery_*/
+package_*_work/
+source_delivery_work/
+*.spec
+*.exe
+*.dll
+*.pyd
+*.zip
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+

@@ -1,0 +1,11 @@
+{
+  "name": "modern-retail-terminal-source-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:ui": "node tests/run_win7_ui_smoke.js"
+  },
+  "devDependencies": {
+    "playwright": "1.61.1"
+  }
+}
